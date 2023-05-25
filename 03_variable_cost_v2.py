@@ -63,12 +63,7 @@ def get_expenses(var_fixed):
         if item_name.lower() == "xxx":
             break
 
-        if var_fixed == "variable":
-            quantity = num_check("Quantity:", "The amount must be a whole number which is more than zero", int)
-
-        else:
-            quantity = 1
-
+        quantity = num_check("Quantity:", "The amount must be a whole number which is more than zero", int)
         price = num_check("How much for a single item? $", "The price must be a number <more than 0>", float)
 
         # add item, quantity and price to lists
@@ -93,16 +88,16 @@ def get_expenses(var_fixed):
 # **** Main routine begins ****
 
 # Get product name
-# product_name = not_blank("Product name: ", "The product name can't be blank.")
+product_name = not_blank("Product name: ", "The product name can't be blank.")
 
-fixed_expenses = get_expenses("fixed")
-fixed_frame = fixed_expenses[0]
-fixed_sub = fixed_expenses[1]
+variable_expenses = get_expenses("variable")
+variable_frame = variable_expenses[0]
+variable_sub = variable_expenses[1]
 
 # **** Printing Area ****
 
 print()
-print(fixed_frame)
+print(variable_frame)
 print()
 
-print("Fixed Cost: ${:.2f}".format(fixed_sub))
+print("Variable Costs: ${:.2f}".format(variable_sub))
